@@ -9,10 +9,10 @@ type Props = {
 export const Button = ({ btnType, label, isLoading = false }: Props) => {
   return (
     <button
-      className="bg-black text-white focus:outline-0 font-semibold py-3 rounded-lg flex justify-center items-center"
+      className="relative bg-black text-white focus:outline-0 font-semibold py-3 rounded-lg flex justify-center items-center"
       type={btnType}
     >
-      {isLoading ? <Spinner /> : label}
+      {isLoading ? <Spinner className="absolute" /> : label}
     </button>
   );
 };
