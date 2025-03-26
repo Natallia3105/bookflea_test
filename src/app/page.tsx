@@ -1,8 +1,12 @@
 import { getBooks } from '@/services/books';
 import Book from '@/components/Book';
 
-export default async function Home() {
-  const books = await getBooks();
+export async function getServerSideProps() {
+    const books = await getBooks();
+
+    return { props: { books } }
+}
+export default async function Home({books}) {
 
   return (
     <div>

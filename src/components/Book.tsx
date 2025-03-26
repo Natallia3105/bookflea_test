@@ -7,7 +7,7 @@ interface Props {
 
 const BookCard = ({ book }: Props) => {
   return (
-    <div className="max-w-[164px] h-[248px] bg-white overflow-hidden text-left">
+    <div className="max-w-[164px] h-[280px] bg-white overflow-hidden text-left">
       <div className="bg-gray-100 rounded-xl w-full h-[178px] flex items-center justify-center">
         <Image
           src={book.images[0]}
