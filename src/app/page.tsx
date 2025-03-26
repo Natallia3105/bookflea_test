@@ -1,12 +1,8 @@
 import { getBooks } from '@/services/books';
 import Book from '@/components/Book';
 
-export async function getServerSideProps() {
-    const books = await getBooks();
-
-    return { props: { books } }
-}
-export default async function Home({books}) {
+export default async function Home() {
+  const books = await getBooks();
 
   return (
     <div>
@@ -20,3 +16,5 @@ export default async function Home({books}) {
     </div>
   );
 }
+
+export const dynamic = 'force-dynamic'
