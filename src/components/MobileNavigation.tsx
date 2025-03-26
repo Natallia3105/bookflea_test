@@ -37,7 +37,7 @@ const LinkItem = ({
 
 const MobileNavigation = () => {
   return (
-    <nav className="md:hidden fixed bottom-0 w-full bg-white p-4 border-t border-gray-200">
+    <nav className="md:hidden bottom-0 w-full bg-white p-4 border-t border-gray-200">
       <ul className="flex justify-center gap-[34px]">
         <LinkItem
           route={ROUTES.Home}

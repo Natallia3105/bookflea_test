@@ -77,8 +77,8 @@ export const CreateBookForm = () => {
 
         <FormInput
           name="price"
-          inputType="number"
-          placeholder="Антуан де Сент-Екзюпері"
+          inputType="text"
+          placeholder="25"
           label="Ціна (злотий)"
         />
 
