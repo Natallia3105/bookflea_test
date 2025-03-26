@@ -9,6 +9,8 @@ type Props = {
   onError(error: string): void;
 };
 
+const maxSize = 2.5 * 1024 * 1024; // 2.5 MB in bytes
+
 export const ImageUploader = ({ onDropImages, onError }: Props) => {
   const [images, setImages] = useState<File[]>([]);
 
@@ -24,6 +26,8 @@ export const ImageUploader = ({ onDropImages, onError }: Props) => {
           onError('Ти можеш завантажити максимум 5 фото');
         } else if (err.code === 'file-invalid-type') {
           onError('Дозволені тільки фотографії');
+        } else if (err.code === 'file-too-large') {
+          onError('Дозволені файли менші ніж 2.5 мегабайти. Це ліміти безкоштовної версії Vercel :)');
         } else {
           onError(err.message);
         }
@@ -39,6 +43,7 @@ export const ImageUploader = ({ onDropImages, onError }: Props) => {
     },
     maxFiles: 5,
     multiple: true,
+    maxSize,
   });
 
   useEffect(() => {
