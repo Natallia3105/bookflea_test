@@ -3,7 +3,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { FileRejection, useDropzone } from 'react-dropzone';
 import Image from 'next/image';
-import classNames from "classnames";
 
 type Props = {
   hasError: boolean;
