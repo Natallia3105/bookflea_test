@@ -3,9 +3,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { FileRejection, useDropzone } from 'react-dropzone';
 import Image from 'next/image';
+import classNames from "classnames";
 
 type Props = {
   hasError: boolean;
+
   onDropImages(files: File[]): void;
   onError(error: string): void;
 };
@@ -54,6 +56,13 @@ export const ImageUploader = ({ onDropImages, onError, hasError }: Props) => {
     };
   }, [images]);
 
+  const dropzoneClasses = classNames(
+'w-full h-48 border border-gray-300 rounded-xl flex flex-col items-center justify-center text-gray-400 cursor-pointer hover:bg-gray-50 transition',
+      {
+        'border-red-500 mb-2': hasError,
+      },
+  );
+
   return (
     <div {...getRootProps()}>
       <input {...getInputProps()} />
@@ -62,11 +71,7 @@ export const ImageUploader = ({ onDropImages, onError, hasError }: Props) => {
         <span className="text-red-500">*</span>
       </label>
 
-      <div
-          className={`w-full h-48 border border-gray-300 rounded-xl flex flex-col items-center justify-center text-gray-400 cursor-pointer hover:bg-gray-50 transition ${
-              hasError ? 'border-red-500 mb-2' : ''
-          }`}
-      >
+      <div className={dropzoneClasses}>
         <Image src="/Upload.svg" alt="Загрузити фото" width={59} height={59} />
 
         <p className="text-base mt-2">Додай до 5 фотографій</p>

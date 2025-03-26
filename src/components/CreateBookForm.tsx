@@ -90,7 +90,7 @@ export const CreateBookForm = () => {
             return (
               <div>
                 <ImageUploader
-                  hasError={error}
+                  hasError={!!error}
                   onError={(errorMessage) => {
                     methods.setError("photos", {
                       message: errorMessage,
