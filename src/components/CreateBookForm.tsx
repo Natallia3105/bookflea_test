@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { FormInput } from '@/components/FormInput';
-import { Button } from '@/components/Button';
-import { Controller, FormProvider, useForm } from 'react-hook-form';
-import { ImageUploader } from '@/components/ImageUploader';
-import { useTransition } from 'react';
-import { createBookAction } from '@/actions/createBookAction';
-import * as React from 'react';
+import { FormInput } from "@/components/FormInput";
+import { Button } from "@/components/Button";
+import { Controller, FormProvider, useForm } from "react-hook-form";
+import { ImageUploader } from "@/components/ImageUploader";
+import { useTransition } from "react";
+import { createBookAction } from "@/actions/createBookAction";
+import * as React from "react";
 
 type FormValues = {
   title: string;
@@ -24,13 +24,13 @@ export const CreateBookForm = () => {
     startTransition(async () => {
       const formData = new FormData();
 
-      formData.append('title', data.title);
-      formData.append('author', data.author);
-      formData.append('price', data.price);
+      formData.append("title", data.title);
+      formData.append("author", data.author);
+      formData.append("price", data.price);
 
       if (data.photos.length > 0) {
         for (let i = 0; i < data.photos.length; i++) {
-          formData.append('photos', data.photos[i]);
+          formData.append("photos", data.photos[i]);
         }
       }
 
@@ -90,8 +90,9 @@ export const CreateBookForm = () => {
             return (
               <div>
                 <ImageUploader
+                  hasError={error}
                   onError={(errorMessage) => {
-                    methods.setError('photos', {
+                    methods.setError("photos", {
                       message: errorMessage,
                     });
                   }}

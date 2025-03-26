@@ -20,8 +20,10 @@ const createBookFormSchema = zfd.formData({
       })
       .min(1, 'Ціна не може бути нижчою нуля'),
   ),
-  photos: zfd.repeatableOfType(zfd.file(z.any().refine((file) => file))),
-});
+  photos: z
+      .array(zfd.file(z.instanceof(File)), {message: 'Мінімум 1 фото обовʼязкове'})
+      .min(1, 'Мінімум 1 фото обовʼязкове'),
+  });
 
 export const createBookAction = async (
   data: FormData,
