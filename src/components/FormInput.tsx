@@ -35,7 +35,6 @@ export const FormInput = ({ inputType, name, placeholder, label }: Props) => {
       </label>
       <input
         className={inputClasses}
-        autoFocus
         id={name}
         type={inputType}
         placeholder={placeholder}

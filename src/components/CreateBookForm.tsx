@@ -59,7 +59,7 @@ export const CreateBookForm = () => {
         onSubmit={methods.handleSubmit((values) =>
           onSubmit(values as FormValues),
         )}
-        className="flex flex-col gap-2"
+        className="flex flex-col gap-2 pb-30 md:pb-0"
       >
         <FormInput
           name="title"
