@@ -12,7 +12,7 @@ export const Button = ({ btnType, label, isLoading = false }: Props) => {
       className="relative bg-black text-white focus:outline-0 font-semibold py-3 rounded-lg flex justify-center items-center"
       type={btnType}
     >
-      {isLoading ? <Spinner className="absolute" /> : label}
+      {isLoading ? <Spinner /> : label}
     </button>
   );
 };
